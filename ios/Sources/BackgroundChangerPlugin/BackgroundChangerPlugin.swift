@@ -8,7 +8,7 @@ public class BackgroundColorPlugin: CAPPlugin, CAPBridgedPlugin {
     public let pluginMethods: [CAPPluginMethod] = [
         CAPPluginMethod(name: "changeBackgroundColor", returnType: CAPPluginReturnPromise)
     ]
-    private let implementation = BackgroundColor()
+    private let implementation: BackgroundChanger = BackgroundChanger()
 
     @objc func changeBackgroundColor(_ call: CAPPluginCall) {
         guard let color = call.getString("color") else {
